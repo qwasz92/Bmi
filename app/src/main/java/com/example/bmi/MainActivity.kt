@@ -27,17 +27,33 @@ class MainActivity : AppCompatActivity() {
         val height = ed_height.text.toString().toFloat()
         val bmi = weight/(height*height)
         Log.d("BMI",bmi.toString())
+//        複雜方式Bundle
         Intent(this,ResultActivity::class.java).apply {
+            val bag = Bundle()
+            bag.putFloat("BMI_EXTRA",bmi)
+            bag.putString("TEST_EXTRA","Testing")
+            putExtras(bag)
             startActivity(this)
         }
-        /*val intent = Intent(this,ResultActivity::class.java)
-        startActivity(intent)*/
+/*
+//第一種單筆資料傳遞方式
+        Intent(this,ResultActivity::class.java).apply {
+            putExtra("BMI_EXTRA",bmi)
+            startActivity(this)
+        }
+// 第二種單筆資料傳遞方式
+        val intent = Intent(this,ResultActivity::class.java)
+        intent.putExtra("BMI_EXTRA",bmi)
+          startActivity(intent)
+         */
+
+     /*提示訊息註解
         Toast.makeText(this,bmi.toString(),Toast.LENGTH_SHORT).show()
         AlertDialog.Builder(this)
             .setTitle("Your BMI")
             .setMessage(bmi.toString())
             .setPositiveButton("OK",null)
             .setNegativeButton("Cancel",null)
-            .show()
+            .show()*/
     }
 }
