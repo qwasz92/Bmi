@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,5 +20,11 @@ class MainActivity : AppCompatActivity() {
         val bmi = weight/(height*height)
         Log.d("BMI",bmi.toString())
         Toast.makeText(this,bmi.toString(),Toast.LENGTH_SHORT).show()
+        AlertDialog.Builder(this)
+            .setTitle("Your BMI")
+            .setMessage(bmi.toString())
+            .setPositiveButton("OK",null)
+            .setNegativeButton("Cancel",null)
+            .show()
     }
 }
