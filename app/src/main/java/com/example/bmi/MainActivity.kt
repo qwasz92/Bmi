@@ -13,6 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        b_help.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("BMI說明")
+                .setMessage("體重(kg)/身高的平方(m)")
+                .setPositiveButton("OK",null)
+                .show()
+        }
     }
     fun bmi(view:View){
         val weight = ed_weight.text.toString().toFloat()
