@@ -18,5 +18,6 @@ class MainActivity : AppCompatActivity() {
         val height = ed_height.text.toString().toFloat()
         val bmi = weight/(height*height)
         Log.d("BMI",bmi.toString())
+        Toast.makeText(this,bmi.toString(),Toast.LENGTH_SHORT).show()
     }
 }
